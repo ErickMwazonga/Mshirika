@@ -15,7 +15,11 @@ class CreateInstitutionsTable extends Migration
     {
         Schema::create('institutions', function (Blueprint $table) {
             $table->increments('id');
-            $table->
+            $table->unsignedInteger('user_id');
+            $table->string('name');
+            $table->unsignedInteger('contact_person_id');
+            $table->enum('status', ['Interested', 'Not Interested', 'In-Talks']);
+            $table->boolean('contacted');
             $table->timestamps();
         });
     }

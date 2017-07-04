@@ -15,6 +15,9 @@ class CreateInteractionsTable extends Migration
     {
         Schema::create('interactions', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('institution_id');
+            $table->enum('type', ['meeting', 'calls', 'email']);
             $table->timestamps();
         });
     }
