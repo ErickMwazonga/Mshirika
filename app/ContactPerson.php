@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContactPerson extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['institution_id','name','phone','email','location'];
+    protected $table = 'contact_people';
 
     public function institution()
     {

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'CRM') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -36,7 +36,49 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        {{--&nbsp;<li><a href="#">All Threads</a></li>--}}
+
+                        <!-- Institution -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Institution<span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Add Institution</a> </li>
+                                <li><a href="#">Manage Institution</a> </li>
+                            </ul>
+                        </li>
+
+                        <!-- Interaction -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Interaction<span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Add Interaction</a> </li>
+                                <li><a href="#">Manage Interaction</a> </li>
+                            </ul>
+                        </li>
+
+                        <!-- Schedules -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Schedules<span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">My Schedules</a> </li>
+                                <li><a href="#">Add Schedule</a> </li>
+                            </ul>
+                        </li>
+
+                        <!-- Deals -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Deals<span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">My Deals</a> </li>
+                                <li><a href="#">Add a Deal</a> </li>
+                                <li><a href="#">Manage Deals</a> </li>
+                            </ul>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

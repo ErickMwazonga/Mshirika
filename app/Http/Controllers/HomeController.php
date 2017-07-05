@@ -19,10 +19,17 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+//    public function index()
+//    {
+//        return view('home');
+//    }
+
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['employee', 'manager']);
         return view('home');
     }
 }

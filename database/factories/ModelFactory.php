@@ -22,3 +22,29 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Institution::class, function(Faker\Generator $faker){
+    return[
+        'user_id' => function(){
+            return factory('App\User')->create()->id;
+        },
+        'name' => $faker->name,
+        'status' => $faker->randomElement(['Interested', 'Not Interested', 'In-Talks']),
+        'contacted' => $faker->boolean
+    ];
+});
+
+
+$factory->define(App\ContactPerson::class, function(Faker\Generator $faker){
+    return[
+        'institution_id' => function(){
+            return factory('App\Institution')->create()->id;
+        },
+        'name' => $faker->name,
+        'phone' => $faker->phoneNumber,
+        'email' => $faker->unique()->safeEmail,
+        'location' => $faker->streetName
+    ];
+});
+

@@ -17,8 +17,8 @@ class CreateContactPeopleTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('institution_id');
             $table->string('name');
-            $table->integer('phone');
-            $table->string('email')->unique();
+            $table->integer('phone')->unique();
+            $table->string('email');
             $table->string('location');
             $table->timestamps();
         });
