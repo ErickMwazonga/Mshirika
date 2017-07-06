@@ -12,7 +12,7 @@ class InstitutionTableSeeder extends Seeder
     public function run()
     {
         factory(App\User::class, 20)->create()->each(function ($user){
-            factory(App\Institution::class, 2)->create(['user_id' => $user->id]);
+            factory(App\Institution::class, 1)->create(['user_id' => $user->id]);
         });
 
     }

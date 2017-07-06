@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/institutions', 'InstitutionsController@index');
+
+Route::get('/institution/create', 'InstitutionsController@create');
+
+Route::get('/institution/{id?}', 'InstitutionsController@show');
+
+Route::get('/institution/edit', 'InstitutionsController@edit');
+
+Route::post('/institution/{id?}/update', 'InstitutionsController@update');
+
+Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
