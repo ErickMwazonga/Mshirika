@@ -49,8 +49,8 @@
                     <li>
                         <a href="#">Interaction</a>
                         <ul class="menu vertical">
-                            <li><a href="#">Add Interaction</a></li>
-                            <li><a href="#">Manage Interaction</a></li>
+                            <li><a href="/institutions">Interactions</a></li>
+                            <li><a href="/institutions/create">Add Interaction</a></li>
                         </ul>
                     </li>
 

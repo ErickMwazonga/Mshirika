@@ -24,7 +24,10 @@ Route::get('/institutions', 'InstitutionsController@index');
 Route::get('/institutions/create', 'InstitutionsController@create');
 Route::post('/institutions', 'InstitutionsController@store');
 //
-Route::get('/institution/{id?}', 'InstitutionsController@show');
+Route::get('/institution/{id?}', [
+    'as' => 'institutionShow',
+    'uses' => 'InstitutionsController@show'
+]);
 
 
 Route::get('/institutions/{id?}/edit', [

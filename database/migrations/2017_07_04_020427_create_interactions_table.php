@@ -17,7 +17,8 @@ class CreateInteractionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('institution_id');
-            $table->enum('type', ['meeting', 'calls', 'email']);
+            $table->string('type');
+            $table->string('follow_up_items');
             $table->timestamps();
         });
     }

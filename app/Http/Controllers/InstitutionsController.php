@@ -71,10 +71,10 @@ class InstitutionsController extends Controller
         });
 
         //sweet alert
-        alert()->success('Successfully created an Institution', 'CRM')->autoclose(2000);
+        alert()->success('Thank you for creating an institution. To edit the institution, click on the institution name.', 'CRM')->autoclose(2000);
 
-        return redirect('/institutions')->with('message', 'Thank you for creating an institution. To edit the institution, click on the institution name.');
-
+        return redirect('/institutions');
+//        return redirect()->route('institutionShow', compact(['institutions']));
     }
 
     /**
@@ -123,7 +123,7 @@ class InstitutionsController extends Controller
         $institution->update($request->all());
         //sweet alert
         alert()->success('Successfully Updated an Institution', 'CRM')->autoclose(2000);
-        return redirect('institutions');
+        return redirect()->route('institutionShow', compact(['institution']));
     }
 
     /**
@@ -159,6 +159,7 @@ class InstitutionsController extends Controller
         $institution->update($request->all());
         //sweet alert
         alert()->success('Successfully Assigned Employee to an Institution', 'CRM')->autoclose(2000);
-        return redirect('institutions');
+//        return redirect('institutions');
+        return redirect()->route('institutionShow', compact(['institution']));
     }
 }

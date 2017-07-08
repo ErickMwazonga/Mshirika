@@ -10,6 +10,7 @@
             <p>Contact Person: {!! $institution->cname !!}</p>
             <p>Phone number: {!! $institution->phone !!}</p>
             <p>Email address: {!! $institution->email !!}</p>
+            <p>Employee Assignee: {!! $institution->assignee !!}</p>
 
             <div class="row">
                 <div class="large-4 columns">
