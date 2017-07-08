@@ -30,6 +30,7 @@
 
 <style lang="scss">
     .notification {
-        background: #e3e3e3;
+        background: linen;
     }
 </style>
+

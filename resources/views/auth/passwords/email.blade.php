@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+    {{--<div class="row">--}}
+        {{--<div class="form-blade medium-6 medium-offset-3 columns">--}}
+            {{--<form>--}}
+                {{--<label for="email">Email address</label>--}}
+                {{--<input type="email" id="email" placeholder="Email">--}}
+                {{--<label for="name">Name</label>--}}
+                {{--<input type="text" id="name" placeholder="Name">--}}
+                {{--<label for="msg">Your Message</label>--}}
+                {{--<textarea id="msg" rows="5" placeholder="Message"></textarea>--}}
+                {{--<button type="button" class="button success">Submit</button>--}}
+            {{--</form>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

@@ -25,10 +25,16 @@
 
 import Vue from 'vue';
 
-import Notification from './components/Notification.vue'
+import Welcome from './components/Welcome.vue'
+// Vue.component('form', require('./components/Form.vue'));
+
+
+import FormComponent from './components/Form.vue'
 
 new Vue({
+
     el: '#app',
 
-    components: {Notification}
+    components: {Welcome, FormComponent}
 });
+

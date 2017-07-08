@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Institution;
 use Illuminate\Http\Request;
+use Mail;
 
 class InstitutionsController extends Controller
 {
@@ -14,8 +15,8 @@ class InstitutionsController extends Controller
      */
     public function index()
     {
-        $institution = Institution::get();
-        return view('institutions.index', compact('institution'));
+        $institutions = Institution::latest()->get();
+        return view('institutions.index', compact('institutions'));
     }
 
     /**
@@ -25,8 +26,8 @@ class InstitutionsController extends Controller
      */
     public function create()
     {
-        $institution = Institution::get();
-        return view('institutions.create', compact('institution'));
+        $institutions = Institution::latest()->get();
+        return view('institutions.create', compact('institutions'));
     }
 
     /**
@@ -37,18 +38,39 @@ class InstitutionsController extends Controller
      */
     public function store(Request $request)
     {
-        $institution = Institution::create($request->all());
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'status' => 'required',
+            'cname' => 'required|string|max:255',
+            'phone' => 'required|min:10|numeric',
+            'email' => 'required|string|email|max:255|unique:institutions',
+        ]);
+
+        $institution = Institution::create([
+            'user_id' => auth()->id(),
+            'name' => request('name'),
+            'cname' => request('cname'),
+            'status' => request('status'),
+            'phone' => request('phone'),
+            'email' => request('email'),
+//            'contacted' => false,
+            'created_at'=>request('created_at')
+        ]);
 
         $institutions = Institution::findOrFail($institution->id);
 
-        Mail::send('appointments.mail', [ 'institution'=>$institutions ], function ($message2) {
+        Mail::send('institutions.mails', [ 'institution'=>$institutions ], function ($message2) {
 
-            $message2->from('dianneprinsescah@gmail.com', 'Change of salon regulations');
+            $message2->from('dianneprinsescah@gmail.com', 'You have successfully created an institution');
 
             $message2->to('Email@mailtrap.io')->subject('Sending an email once an institution has been made');
         });
 
-        return redirect('/appointments')->with('message', 'Thank you for making the institution. To edit the institution, click on your username.');
+        //sweet alert
+        alert()->success('Successfully created an Institution', 'CRM')->autoclose(2000);
+
+        return redirect('/institutions')->with('message', 'Thank you for creating an institution. To edit the institution, click on the institution name.');
+
     }
 
     /**
@@ -60,7 +82,7 @@ class InstitutionsController extends Controller
      */
     public function show($id)
     {
-//        $institution = Institution::findOrFail($id);
+        $institution = Institution::findOrFail($id);
         return view('institutions.show', compact('institution'));
     }
 
@@ -73,7 +95,7 @@ class InstitutionsController extends Controller
      */
     public function edit($id)
     {
-//        $institution = Institution::findOrFail($id);
+        $institution = Institution::findOrFail($id);
         return view ('institutions.edit', compact('institution'));
     }
 
@@ -87,8 +109,10 @@ class InstitutionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        $institution = Institution::findOrFail($id);
-//        $institution->update($request->all());
+        $institution = Institution::findOrFail($id);
+        $institution->update($request->all());
+        //sweet alert
+        alert()->success('Successfully Updated an Institution', 'CRM')->autoclose(2000);
         return redirect('institutions');
     }
 
@@ -103,6 +127,8 @@ class InstitutionsController extends Controller
     {
         $institution = Institution::findOrFail($id);
         $institution->delete();
-        return redirect('institutions')->with('message1', 'The appointment has been successfully deleted');
+        //sweet alert
+        alert()->success('Successfully Deleted an Institution', 'CRM')->autoclose(2000);
+        return redirect('institutions');
     }
 }

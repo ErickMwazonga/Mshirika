@@ -17,8 +17,11 @@ class CreateInstitutionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('name');
-            $table->enum('status', ['Interested', 'Not Interested', 'In-Talks']);
-            $table->boolean('contacted');
+            $table->string('status');
+//            $table->boolean('contacted');
+            $table->string('cname');
+            $table->string('phone')->unique();
+            $table->string('email');
             $table->timestamps();
         });
     }

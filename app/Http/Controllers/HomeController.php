@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendMail;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,9 +28,17 @@ class HomeController extends Controller
 //        return view('home');
 //    }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['employee', 'manager']);
         return view('home');
+
+        event( new SendMail( 2 ) );
+//        Event::fire(new SendMail(2));
+        return view( 'home' );
     }
 }

@@ -20,13 +20,28 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/institutions', 'InstitutionsController@index');
-
-Route::get('/institution/create', 'InstitutionsController@create');
-
+//
+Route::get('/institutions/create', 'InstitutionsController@create');
+Route::post('/institutions', 'InstitutionsController@store');
+//
 Route::get('/institution/{id?}', 'InstitutionsController@show');
 
-Route::get('/institution/edit', 'InstitutionsController@edit');
 
-Route::post('/institution/{id?}/update', 'InstitutionsController@update');
+Route::get('/institutions/{id?}/edit', [
+    'uses' => 'InstitutionsController@edit',
+    'middleware' => 'roles',
+    'roles' => ['manager']
+]);
+Route::post('/institutions/{id?}/update', [
+    'uses' => 'InstitutionsController@update',
+    'middleware' => 'roles',
+    'roles' => ['manager']
+]);
 
+
+//
+//Route::post('/institution/{id?}/update', 'InstitutionsController@update');
+//
 Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
+
+//Route::resource('institutions', 'InstitutionsController', ['middleware' => 'auth']);

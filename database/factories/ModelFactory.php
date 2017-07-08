@@ -29,9 +29,13 @@ $factory->define(App\Institution::class, function(Faker\Generator $faker){
         'user_id' => function(){
             return factory('App\User')->create()->id;
         },
-        'name' => $faker->name,
+        'name' => $faker->company,
         'status' => $faker->randomElement(['Interested', 'Not Interested', 'In-Talks']),
-        'contacted' => $faker->boolean
+//        'contacted' => $faker->boolean,
+        'cname' => $faker->name,
+        'phone' => $faker->phoneNumber,
+//        'department' => $faker->departmentName,
+        'email' => $faker->unique()->safeEmail,
     ];
 });
 
