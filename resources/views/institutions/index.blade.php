@@ -25,6 +25,7 @@
                     <th>Contact person's name</th>
                     <th>Phone number</th>
                     <th>Email address</th>
+                    <th>Assignee</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,9 @@
                         <td>{{ $institution->cname }}</td>
                         <td>{{ $institution->phone }}</td>
                         <td>{{ $institution->email }}</td>
+                        <td>
+                            <a href="{!! action('UsersController@show', $institution->id) !!}">{{ $institution->assignee }}</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -46,6 +46,7 @@ class InstitutionsController extends Controller
             'cname' => 'required|string|max:255',
             'phone' => 'required|min:10|numeric',
             'email' => 'required|string|email|max:255|unique:institutions',
+//            'assignee' => 'required|string|max:255',
         ]);
 
         $institution = Institution::create([
@@ -55,6 +56,7 @@ class InstitutionsController extends Controller
             'status' => request('status'),
             'phone' => request('phone'),
             'email' => request('email'),
+            'assignee' => '',
 //            'contacted' => false,
             'created_at'=>request('created_at')
         ]);
@@ -88,7 +90,8 @@ class InstitutionsController extends Controller
 
         $users = DB::table('users')
                     ->where('email', 'like', '%cytonn.com')
-                    ->pluck('name','id');
+                    ->pluck('name','name')
+                    ->prepend('Select a category', '');
 
         return view('institutions.show', compact(['institution', 'users']));
     }
@@ -141,11 +144,6 @@ class InstitutionsController extends Controller
 
 
     //Assigning employee to an institution
-    public function assignEdit($id)
-    {
-        $institution = Institution::findOrFail($id);
-        return view ('institutions.show', compact('institution'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -158,7 +156,7 @@ class InstitutionsController extends Controller
     public function assignUpdate(Request $request, $id)
     {
         $institution = Institution::findOrFail($id);
-        $institution->update(request('assignee'));
+        $institution->update($request->all());
         //sweet alert
         alert()->success('Successfully Assigned Employee to an Institution', 'CRM')->autoclose(2000);
         return redirect('institutions');

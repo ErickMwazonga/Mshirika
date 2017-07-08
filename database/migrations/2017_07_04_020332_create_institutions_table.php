@@ -22,6 +22,7 @@ class CreateInstitutionsTable extends Migration
             $table->string('cname');
             $table->string('phone')->unique();
             $table->string('email');
+            $table->string('assignee');
             $table->timestamps();
         });
     }

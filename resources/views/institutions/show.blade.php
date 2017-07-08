@@ -34,9 +34,9 @@
             </div>
             @if(Auth::user()->hasRole('manager'))
                 <div class="">
-                    {!!  Form::model($institution, ['method'=>'POST ','url' => "/institutions/$institution->id/assign"]) !!}
+                    {!!  Form::model($institution, ['method'=>'POST ','url' => "/institutions/$institution->id/assign_update"]) !!}
 
-                    @include('institutions._assign_role', ['submitButtonText'=>'Submit'])
+                    @include('institutions._assign_employee', ['submitButtonText'=>'Submit'])
 
                     {!! Form::close() !!}
 

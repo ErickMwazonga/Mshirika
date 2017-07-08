@@ -31,11 +31,10 @@ $factory->define(App\Institution::class, function(Faker\Generator $faker){
         },
         'name' => $faker->company,
         'status' => $faker->randomElement(['Interested', 'Not Interested', 'In-Talks']),
-//        'contacted' => $faker->boolean,
         'cname' => $faker->name,
         'phone' => $faker->phoneNumber,
-//        'department' => $faker->departmentName,
         'email' => $faker->unique()->safeEmail,
+        'assignee' => $faker->name,
     ];
 });
 

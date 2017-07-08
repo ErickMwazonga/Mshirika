@@ -48,13 +48,11 @@ Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
 
 
 //Assign Employee
-Route::get('/institutions/{id?}/assign', [
-    'uses' => 'InstitutionsController@edit',
+Route::post('/institutions/{id?}/assign_update', [
+    'uses' => 'InstitutionsController@assignUpdate',
     'middleware' => 'roles',
     'roles' => ['manager']
 ]);
-Route::post('/institutions/{id?}/update', [
-    'uses' => 'InstitutionsController@update',
-    'middleware' => 'roles',
-    'roles' => ['manager']
-]);
+
+
+Route::get('/users/{id?}', 'UsersController@show');
