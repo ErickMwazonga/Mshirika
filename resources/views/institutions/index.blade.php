@@ -3,12 +3,6 @@
 @section('content')
     <div class="form-blade large-10 large-offset-1 columns">
 
-        @if (session('message1'))
-            <div class="alert alert-success">
-                {{ session('message1') }}
-            </div>
-        @endif
-
         <h5 class= "large-6 large-offset-4  columns">A List of Created Institutions</h5>
 
         <hr>
@@ -19,7 +13,7 @@
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th></th>
                     <th>Institution's Name</th>
                     <th>Status</th>
                     <th>Contact person's name</th>
@@ -31,7 +25,7 @@
                 <tbody>
                 @foreach($institutions as $institution)
                     <tr>
-                        <td>{{ $institution->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>
                             <a href="{!! action('InstitutionsController@show', $institution->id) !!}">{{ $institution->name }}</a>
                         </td>

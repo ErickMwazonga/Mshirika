@@ -19,36 +19,31 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/institutions', 'InstitutionsController@index');
-//
 Route::get('/institutions/create', 'InstitutionsController@create');
 Route::post('/institutions', 'InstitutionsController@store');
-//
 Route::get('/institution/{id?}', [
     'as' => 'institutionShow',
     'uses' => 'InstitutionsController@show'
 ]);
-
 
 Route::get('/institutions/{id?}/edit', [
     'uses' => 'InstitutionsController@edit',
     'middleware' => 'roles',
     'roles' => ['manager']
 ]);
+
 Route::post('/institutions/{id?}/update', [
     'uses' => 'InstitutionsController@update',
     'middleware' => 'roles',
     'roles' => ['manager']
 ]);
 
-
-//
-//Route::post('/institution/{id?}/update', 'InstitutionsController@update');
-//
 Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
 
+//Route::post('/institution/{id?}/update', 'InstitutionsController@update');
 //Route::resource('institutions', 'InstitutionsController', ['middleware' => 'auth']);
-
 
 //Assign Employee
 Route::post('/institutions/{id?}/assign_update', [
@@ -59,3 +54,11 @@ Route::post('/institutions/{id?}/assign_update', [
 
 
 Route::get('/users/{id?}', 'UsersController@show');
+
+
+
+
+//Route::get('/interactions', 'InteractionsController@index');
+//Route::get('/interactions/create', 'InteractionsController@create');
+//Route::post('/interactions', 'InteractionsController@store');
+Route::resource('interactions', 'InteractionsController', ['middleware' => 'auth']);

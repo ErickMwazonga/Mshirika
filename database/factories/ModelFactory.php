@@ -38,16 +38,16 @@ $factory->define(App\Institution::class, function(Faker\Generator $faker){
     ];
 });
 
-
-$factory->define(App\ContactPerson::class, function(Faker\Generator $faker){
+$factory->define(App\Interaction::class, function(Faker\Generator $faker){
     return[
+        'user_id' => function(){
+            return factory('App\User')->create()->id;
+        },
         'institution_id' => function(){
             return factory('App\Institution')->create()->id;
         },
-        'name' => $faker->name,
-        'phone' => $faker->phoneNumber,
-        'email' => $faker->unique()->safeEmail,
-        'location' => $faker->streetName
+        'type' => $faker->randomElement(['Calls', 'Emails', 'Meetings']),
+        'follow_up_items' => $faker->name,
     ];
 });
 

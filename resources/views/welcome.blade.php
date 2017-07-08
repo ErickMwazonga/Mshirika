@@ -4,7 +4,7 @@
 
     <div id="app">
         <div class="row">
-            <div class="form-blade large-6 large-offset-3  columns">
+            <div class="form-blade large-8 large-offset-2  columns">
                 <div>
                     Welcome to Project Finance Management System
                 </div>

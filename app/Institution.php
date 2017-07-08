@@ -18,8 +18,4 @@ class Institution extends Model
         return $this->hasMany(Interaction::class);
     }
 
-    public function contactPersons()
-    {
-        return $this->hasMany(ContactPerson::class);
-    }
 }

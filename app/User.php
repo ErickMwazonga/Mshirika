@@ -30,11 +30,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function interactions()
-    {
-        return $this->hasMany(Interaction::class);
-    }
-
 
     public function scopeEmp()
     {
@@ -86,6 +81,11 @@ class User extends Authenticatable
     public function institutions()
     {
         return $this->hasMany(Institution::class);
+    }
+
+    public function interactions()
+    {
+        return $this->hasMany(Interaction::class);
     }
 
 }

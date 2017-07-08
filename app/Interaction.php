@@ -12,4 +12,9 @@ class Interaction extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class, 'institution_id');
+    }
 }
