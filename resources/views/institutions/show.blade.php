@@ -15,10 +15,8 @@
                 <div class="large-4 columns">
                     <a class="button" href="{{ url("institutions/$institution->id/edit") }}">Edit Institution</a>
                 </div>
-                <div class="large-4 columns">
-                    <a class="button success" href="#">Assign Employee</a>
-                </div>
-                <div class="large-4 columns">
+
+                <div class="large-4 large-offset-1 columns">
                     <form method="post" action="{!! action('InstitutionsController@destroy', $institution->id) !!}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
@@ -36,9 +34,12 @@
             </div>
             @if(Auth::user()->hasRole('manager'))
                 <div class="">
-                    {!! Form::open(['url' => '/institutions']) !!}
-                    @include('institutions._form', ['submitButtonText'=>'Submit'])
+                    {!!  Form::model($institution, ['method'=>'POST ','url' => "/institutions/$institution->id/assign"]) !!}
+
+                    @include('institutions._assign_role', ['submitButtonText'=>'Submit'])
+
                     {!! Form::close() !!}
+
                 </div>
             @endif
 

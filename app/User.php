@@ -35,6 +35,13 @@ class User extends Authenticatable
         return $this->hasMany(Interaction::class);
     }
 
+
+    public function scopeEmp()
+    {
+        return User::all()->toArray();
+    }
+
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

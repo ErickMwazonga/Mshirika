@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Institution;
+use App\User;
 use Illuminate\Http\Request;
 use Mail;
+use Illuminate\Support\Facades\DB;
 
 class InstitutionsController extends Controller
 {
@@ -83,7 +85,12 @@ class InstitutionsController extends Controller
     public function show($id)
     {
         $institution = Institution::findOrFail($id);
-        return view('institutions.show', compact('institution'));
+
+        $users = DB::table('users')
+                    ->where('email', 'like', '%cytonn.com')
+                    ->pluck('name','id');
+
+        return view('institutions.show', compact(['institution', 'users']));
     }
 
     /**
@@ -129,6 +136,31 @@ class InstitutionsController extends Controller
         $institution->delete();
         //sweet alert
         alert()->success('Successfully Deleted an Institution', 'CRM')->autoclose(2000);
+        return redirect('institutions');
+    }
+
+
+    //Assigning employee to an institution
+    public function assignEdit($id)
+    {
+        $institution = Institution::findOrFail($id);
+        return view ('institutions.show', compact('institution'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     * @internal param Institution $institution
+     */
+    public function assignUpdate(Request $request, $id)
+    {
+        $institution = Institution::findOrFail($id);
+        $institution->update(request('assignee'));
+        //sweet alert
+        alert()->success('Successfully Assigned Employee to an Institution', 'CRM')->autoclose(2000);
         return redirect('institutions');
     }
 }
