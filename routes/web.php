@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+//Institution Routes
 Route::get('/institutions', 'InstitutionsController@index');
 Route::get('/institutions/create', 'InstitutionsController@create');
 Route::post('/institutions', 'InstitutionsController@store');
@@ -42,8 +42,6 @@ Route::post('/institutions/{id?}/update', [
 
 Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
 
-//Route::post('/institution/{id?}/update', 'InstitutionsController@update');
-//Route::resource('institutions', 'InstitutionsController', ['middleware' => 'auth']);
 
 //Assign Employee
 Route::post('/institutions/{id?}/assign_update', [
@@ -57,8 +55,53 @@ Route::get('/users/{id?}', 'UsersController@show');
 
 
 
+//Interaction Routes
+Route::get('/interactions', 'InteractionsController@index');
+Route::get('/interactions/create', 'InteractionsController@create');
+Route::post('/interactions', 'InteractionsController@store');
+Route::get('/interaction/{id?}', [
+    'as' => 'interactionShow',
+    'uses' => 'InteractionsController@show'
+]);
 
-//Route::get('/interactions', 'InteractionsController@index');
+Route::get('/interactions/{id?}/edit', [
+    'uses' => 'InteractionsController@edit'
+//    'middleware' => 'roles',
+//    'roles' => ['manager']
+]);
+
+Route::post('/interactions/{id?}/update', [
+    'uses' => 'InteractionsController@update'
+//    'middleware' => 'roles',
+//    'roles' => ['manager']
+]);
+
+Route::post('/interaction/{id?}/delete', 'InteractionsController@destroy');
+
+//Route::resource('interactions', 'InteractionsController', ['middleware' => 'auth']);
+
+
+
+
+//Deals Routes
+Route::get('/deals', 'DealsController@index');
 //Route::get('/interactions/create', 'InteractionsController@create');
 //Route::post('/interactions', 'InteractionsController@store');
-Route::resource('interactions', 'InteractionsController', ['middleware' => 'auth']);
+//Route::get('/interaction/{id?}', [
+//    'as' => 'interactionShow',
+//    'uses' => 'InteractionsController@show'
+//]);
+//
+//Route::get('/interactions/{id?}/edit', [
+//    'uses' => 'InteractionsController@edit'
+////    'middleware' => 'roles',
+////    'roles' => ['manager']
+//]);
+//
+//Route::post('/interactions/{id?}/update', [
+//    'uses' => 'InteractionsController@update'
+////    'middleware' => 'roles',
+////    'roles' => ['manager']
+//]);
+//
+//Route::post('/interaction/{id?}/delete', 'InteractionsController@destroy');

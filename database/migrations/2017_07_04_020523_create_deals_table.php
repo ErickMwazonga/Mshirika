@@ -18,7 +18,6 @@ class CreateDealsTable extends Migration
             $table->unsignedInteger('interaction_id');
             $table->unsignedInteger('company_ratio');
             $table->unsignedInteger('institution_ratio');
-            $table->string('agreement');
             $table->timestamps();
         });
     }

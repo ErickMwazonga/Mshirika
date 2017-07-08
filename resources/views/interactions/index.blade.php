@@ -24,7 +24,9 @@
                 <tbody>
                 @foreach($interactions as $interaction)
                     <tr>
-                        <td>{{ $loop->iteration  }}</td>
+                        <td>
+                            <a href="{!! action('InteractionsController@show', $interaction->id) !!}">{{ $loop->iteration  }}</a>
+                        </td>
                         <td>
                             {{ $interaction->owner->name }}
                             {{--<a href="{!! action('interactionsController@show', $interaction->id) !!}">{{ $interaction->user_id }}</a>--}}

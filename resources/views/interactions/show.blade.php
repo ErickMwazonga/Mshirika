@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <div class="form-blade large-6 large-offset-3  columns">
-            <h5>{!! $interaction->id !!}'s interaction</h5>
+            <h5>Interaction {!! $interaction->id !!}</h5>
             <hr>
             
             <p>User: {!! $interaction->owner->name !!}</p>
-            <p>interaction: {!! $interaction->interaction->name !!}</p>
+            <p>interaction: {!! $interaction->institution->name !!}</p>
             <p>Type: {!! $interaction->type !!}</p>
             <p>Follow up Items: {!! $interaction->follow_up_items !!}</p>
             <p>Created At: {!! $interaction->created_at !!}</p>
@@ -18,15 +18,14 @@
                 </div>
 
                 <div class="large-4 large-offset-1 columns">
-                    <form method="post" action="{!! action('InteractionController@destroy', $interaction->id) !!}">
+                    <form method="post" action="{!! action('InteractionsController@destroy', $interaction->id) !!}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
-                            {!!  Form::model($interaction, ['method'=>'POST','url' => ' interaction/{id?}/delete '.$interaction->id]) !!}
+                            {!!  Form::model($interaction, ['method'=>'POST', 'url' => ' interaction/{id?}/delete '.$interaction->id]) !!}
                             {{ Form::submit('Delete interaction', array('class' => 'button alert')) }}
                         </div>
                     </form>
                 </div>
-
 
                 <br>
 

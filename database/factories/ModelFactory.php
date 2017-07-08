@@ -51,3 +51,14 @@ $factory->define(App\Interaction::class, function(Faker\Generator $faker){
     ];
 });
 
+
+$factory->define(App\Deal::class, function(Faker\Generator $faker){
+    return[
+        'interaction_id' => function(){
+            return factory('App\Interaction')->create()->id;
+        },
+        'institution_ratio' => $faker->numberBetween(1,100),
+        'company_ratio' => $faker->numberBetween(1,100),
+    ];
+});
+

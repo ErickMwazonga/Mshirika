@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Institution;
 use App\Interaction;
 use App\User;
 use Illuminate\Http\Request;
@@ -28,11 +29,11 @@ class InteractionsController extends Controller
      */
     public function create()
     {
-        $interactions = DB::table('interactions')
+        $institutions = DB::table('institutions')
             ->pluck('name','id')
-            ->prepend('Select a interaction', '');
+            ->prepend('Select an Institution', '');
 
-        return view('interactions.create', compact('interactions'));
+        return view('interactions.create', compact('institutions'));
     }
 
     /**
@@ -50,7 +51,7 @@ class InteractionsController extends Controller
 
         $interaction = Interaction::create([
             'user_id' => auth()->id(),
-            'interaction_id' => request('interaction_id'),
+            'institution_id' => request('institution_id'),
             'type' => request('type'),
             'follow_up_items' => request('follow_up_items'),
             'created_at'=>request('created_at')
@@ -94,7 +95,10 @@ class InteractionsController extends Controller
     public function edit($id)
     {
         $interaction = Interaction::findOrFail($id);
-        return view ('interactions.edit', compact('interaction'));
+        $institutions = DB::table('institutions')
+            ->pluck('name','id')
+            ->prepend('Select an Institution', '');
+        return view ('interactions.edit', compact(['interaction', 'institutions']));
     }
 
     /**
@@ -106,11 +110,11 @@ class InteractionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $institution = Institution::findOrFail($id);
-        $institution->update($request->all());
+        $interaction = interaction::findOrFail($id);
+        $interaction->update($request->all());
         //sweet alert
-        alert()->success('Successfully Updated an Institution', 'CRM')->autoclose(2000);
-        return redirect()->route('institutionShow', compact(['institution']));
+        alert()->success('Successfully Updated an interaction', 'CRM')->autoclose(2000);
+        return redirect()->route('interactionShow', compact(['interaction']));
     }
 
     /**
@@ -119,8 +123,12 @@ class InteractionsController extends Controller
      * @param  \App\Interaction  $interaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Interaction $interaction)
+    public function destroy($id)
     {
-        //
+        $interaction = Interaction::findOrFail($id);
+        $interaction->delete();
+        //sweet alert
+        alert()->success('Successfully Deleted an Interaction', 'CRM')->autoclose(2000);
+        return redirect('interactions');
     }
 }

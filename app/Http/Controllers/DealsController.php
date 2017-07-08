@@ -14,7 +14,8 @@ class DealsController extends Controller
      */
     public function index()
     {
-        //
+        $deals = Deal::latest()->get();
+        return view('deals.index', compact(['deals']));
     }
 
     /**
