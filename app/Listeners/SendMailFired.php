@@ -3,8 +3,10 @@
 namespace App\Listeners;
 
 use App\Events\SendMail;
+use App\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Mail;
 
 class SendMailFired
 {
@@ -28,7 +30,7 @@ class SendMailFired
     {
         $user = User::findOrFail($event->name);
 
-        Mail::send('appointments.mail', [ 'appointment'=>$user ], function ($message2) {
+        Mail::send('institutions.mails', [ 'institution'=>$user ], function ($message2) {
 
             $message2->from('dianneprinsescah@gmail.com', 'Welcome message');
 

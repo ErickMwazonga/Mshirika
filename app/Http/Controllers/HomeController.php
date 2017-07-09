@@ -35,7 +35,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['employee', 'manager']);
-        return view('home');
+//        return view('home');
 
         event( new SendMail( 2 ) );
 //        Event::fire(new SendMail(2));

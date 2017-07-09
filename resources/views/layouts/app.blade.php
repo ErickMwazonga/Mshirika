@@ -65,9 +65,8 @@
                     <li>
                         <a href="#">Deals</a>
                         <ul class="menu vertical">
-                            <li><a href="#">Settled Deals</a></li>
+                            <li><a href="/deals">Deals</a></li>
                             <li><a href="#">Add a Deal</a></li>
-                            <li><a href="#">Manage a Deal</a></li>
                         </ul>
                     </li>
 

@@ -17,7 +17,6 @@
                     <th>Interaction's Id</th>
                     <th>Company Ratio</th>
                     <th>Institution Ratio</th>
-                    <th>Agreement</th>
                     <th>Created At</th>
                 </tr>
                 </thead>
@@ -31,7 +30,6 @@
                         </td>
                         <td>{{ $deal->company_ratio }}</td>
                         <td>{{ $deal->institution_ratio }}</td>
-                        <td>{{ $deal->agreement }}</td>
                         <td>{{ $deal->created_at }}</td>
                     </tr>
                 @endforeach

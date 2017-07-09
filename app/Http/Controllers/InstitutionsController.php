@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class InstitutionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +23,7 @@ class InstitutionsController extends Controller
     public function index()
     {
         $institutions = Institution::latest()->get();
+//        $institutions = DB::table('institutions')->simplePaginate(15);
         return view('institutions.index', compact('institutions'));
     }
 
@@ -63,12 +69,12 @@ class InstitutionsController extends Controller
 
         $institutions = Institution::findOrFail($institution->id);
 
-        Mail::send('institutions.mails', [ 'institution'=>$institutions ], function ($message2) {
-
-            $message2->from('dianneprinsescah@gmail.com', 'You have successfully created an institution');
-
-            $message2->to('Email@mailtrap.io')->subject('Sending an email once an institution has been made');
-        });
+//        Mail::send('institutions.mails', [ 'institution'=>$institutions ], function ($message2) {
+//
+//            $message2->from('dianneprinsescah@gmail.com', 'You have successfully created an institution');
+//
+//            $message2->to('Email@mailtrap.io')->subject('Sending an email once an institution has been made');
+//        });
 
         //sweet alert
         alert()->success('Thank you for creating an institution. To edit the institution, click on the institution name.', 'CRM')->autoclose(2000);
