@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//use App\Events\SendMail;
 use App\Events\SendMail;
 use Illuminate\Http\Request;
 
