@@ -52,7 +52,6 @@ class InstitutionsController extends Controller
             'cname' => 'required|string|max:255',
             'phone' => 'required|min:10|numeric',
             'email' => 'required|string|email|max:255|unique:institutions',
-//            'assignee' => 'required|string|max:255',
         ]);
 
         $institution = Institution::create([
@@ -63,7 +62,6 @@ class InstitutionsController extends Controller
             'phone' => request('phone'),
             'email' => request('email'),
             'assignee' => '',
-//            'contacted' => false,
             'created_at'=>request('created_at')
         ]);
 
@@ -80,7 +78,6 @@ class InstitutionsController extends Controller
         alert()->success('Thank you for creating an institution. To edit the institution, click on the institution name.', 'CRM')->autoclose(2000);
 
         return redirect('/institutions');
-//        return redirect()->route('institutionShow', compact(['institutions']));
     }
 
     /**

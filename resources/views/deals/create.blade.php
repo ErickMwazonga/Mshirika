@@ -7,7 +7,7 @@
         <hr>
 
         {!! Form::open(['url' => '/deals']) !!}
-        @include('deals._form', ['submitButtonText'=>'Submit'])
+            @include('deals._form', ['submitButtonText'=>'Submit'])
         {!! Form::close() !!}
 
     </div>

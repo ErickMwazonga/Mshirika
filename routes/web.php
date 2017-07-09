@@ -38,7 +38,6 @@ Route::post('/institutions/{id?}/update', [
     'middleware' => 'roles',
     'roles' => ['manager']
 ]);
-
 Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
 
 
@@ -65,21 +64,15 @@ Route::get('/interaction/{id?}', [
 
 Route::get('/interactions/{id?}/edit', [
     'uses' => 'InteractionsController@edit'
-//    'middleware' => 'roles',
-//    'roles' => ['manager']
 ]);
 
 Route::post('/interactions/{id?}/update', [
     'uses' => 'InteractionsController@update'
-//    'middleware' => 'roles',
-//    'roles' => ['manager']
 ]);
 
 Route::post('/interaction/{id?}/delete', 'InteractionsController@destroy');
 
 //Route::resource('interactions', 'InteractionsController', ['middleware' => 'auth']);
-
-
 
 
 //Deals Routes
@@ -93,16 +86,14 @@ Route::get('/deal/{id?}', [
 
 Route::get('/deals/{id?}/edit', [
     'uses' => 'DealsController@edit'
-//    'middleware' => 'roles',
-//    'roles' => ['manager']
 ]);
 
 Route::post('/deals/{id?}/update', [
     'uses' => 'DealsController@update'
-//    'middleware' => 'roles',
-//    'roles' => ['manager']
 ]);
-
 Route::post('/deal/{id?}/delete', 'DealsController@destroy');
-
 //Route::resource('deals', 'dealsController', ['middleware' => 'auth']);
+
+
+//Schedule Routes
+//Route::post('/interaction/{id?}/schedule', 'SchedulesController@store');

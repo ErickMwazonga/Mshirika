@@ -7,7 +7,7 @@
         <hr>
 
         {!! Form::open(['url' => '/interactions']) !!}
-        @include('interactions._form', ['submitButtonText'=>'Submit'])
+            @include('interactions._form', ['submitButtonText'=>'Submit'])
         {!! Form::close() !!}
 
     </div>

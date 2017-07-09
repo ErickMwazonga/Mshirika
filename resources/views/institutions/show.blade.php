@@ -30,8 +30,6 @@
 
                 <br>
 
-                <div class="clearfix"></div>
-
             </div>
             @if(Auth::user()->hasRole('manager'))
                 <div class="">

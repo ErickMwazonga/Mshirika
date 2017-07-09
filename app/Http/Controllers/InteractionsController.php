@@ -63,15 +63,6 @@ class InteractionsController extends Controller
             'created_at'=>request('created_at')
         ]);
 
-//        $interactions = Interaction::findOrFail($interaction->id);
-//
-//        Mail::send('interactions.mails', [ 'interaction'=>$interactions ], function ($message2) {
-//
-//            $message2->from('dianneprinsescah@gmail.com', 'You have successfully created an interaction');
-//
-//            $message2->to('Email@mailtrap.io')->subject('Sending an email once an interaction has been made');
-//        });
-
 
         //sweet alert
         alert()->success('Thank you for creating an interaction', 'CRM')->autoclose(2000);

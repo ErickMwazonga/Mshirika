@@ -21,4 +21,8 @@ class Interaction extends Model
     {
         return $this->hasOne('App\Deal');
     }
+    public function schedules()
+    {
+        return $this->hasmany('App\Schedule');
+    }
 }

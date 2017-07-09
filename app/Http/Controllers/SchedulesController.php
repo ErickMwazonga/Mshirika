@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Interaction;
 use App\Schedule;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class SchedulesController extends Controller
 {
@@ -38,9 +40,51 @@ class SchedulesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'meeting_time' => 'required',
+            'reminder_time' => 'required',
+        ]);
+
+        $meeting_time = Carbon::createFromTimestamp(request('meeting_time'))->toDateTimeString();
+//        $meeting_time = $meeting_time->toDateTimeString();
+
+        $reminder_time = new Carbon();
+
+
+        if($meeting_time == 1){
+            $reminder_time = $meeting_time->subHours(1);
+        }
+        else if($meeting_time == 2){
+            $reminder_time = $meeting_time->subHours(2);
+        }
+        else if($meeting_time == 5){
+            $reminder_time = $meeting_time->subHours(5);
+        }
+        else if($meeting_time == 6){
+            $reminder_time = $meeting_time->subHours(6);
+        }
+        else if($meeting_time == 12){
+            $reminder_time = $meeting_time->subHours(12);
+        }
+        else if($meeting_time == 24){
+            $reminder_time = $meeting_time->subHours(24);
+        }
+
+
+        $interaction = Interaction::findOrFail($id);
+
+        $schedule = Schedule::create([
+            'interaction_id' => $interaction->id,
+            'meeting_time' => request('meeting_time'),
+            'reminder_time' => $reminder_time,
+        ]);
+
+        //sweet alert
+        alert()->success('You have scheduled an interaction', 'CRM')->autoclose(2000);
+
+        return redirect('/interactions');
     }
 
     /**

@@ -21,28 +21,24 @@
                     <form method="post" action="{!! action('InteractionsController@destroy', $interaction->id) !!}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
-                            {!!  Form::model($interaction, ['method'=>'POST', 'url' => ' interaction/{id?}/delete '.$interaction->id]) !!}
+                            {!! Form::model($interaction, ['method'=>'POST', 'id' => 'confirm_delete', 'url' => ' interaction/{id?}/delete '.$interaction->id]) !!}
                             {{ Form::submit('Delete interaction', array('class' => 'button alert')) }}
                         </div>
                     </form>
                 </div>
 
                 <br>
-
             </div>
 
-            <div>
-                <h5>Schedule an Interaction</h5>
-                <hr>
+            {{--<div>--}}
+                {{--{!!  Form::model($interaction, ['method'=>'POST ','url' => "/interaction/$interaction->id/schedule"]) !!}--}}
 
-                {!! Form::open(['url' => '/interactions']) !!}
-                    @include('interactions._form', ['submitButtonText'=>'Submit'])
-                {!! Form::close() !!}
-            </div>
+                    {{--@include('interactions._schedule', ['submitButtonText'=>'Submit'])--}}
 
+                {{--{!! Form::close() !!}--}}
+
+            {{--</div>--}}
         </div>
-
     </div>
 
 @endsection
-
