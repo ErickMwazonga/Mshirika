@@ -35,8 +35,6 @@ Route::get('/institutions/{id?}/edit', [
 
 Route::post('/institutions/{id?}/update', [
     'uses' => 'InstitutionsController@update',
-    'middleware' => 'roles',
-    'roles' => ['manager']
 ]);
 Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
 
