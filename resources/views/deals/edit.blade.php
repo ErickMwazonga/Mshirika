@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="form-blade large-6 large-offset-3  columns">
-        <h5>Edit an Institution</h5>
+        <h5>Edit a Deal</h5>
         <hr>
 
-        {!!  Form::model($institution, ['method'=>'POST ','url' => "/institutions/$institution->id/update"]) !!}
+        {!!  Form::model($deal, ['method'=>'POST ','url' => "/deals/$deal->id/update"]) !!}
 
-        @include('institutions._form', ['submitButtonText'=>'Edit'])
+        @include('deals._form', ['submitButtonText'=>'Edit'])
 
         {!! Form::close() !!}
 

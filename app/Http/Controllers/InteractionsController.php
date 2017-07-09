@@ -35,6 +35,7 @@ class InteractionsController extends Controller
     public function create()
     {
         $institutions = DB::table('institutions')
+            ->paginate(15)
             ->pluck('name','id')
             ->prepend('Select an Institution', '');
 
@@ -115,7 +116,7 @@ class InteractionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $interaction = interaction::findOrFail($id);
+        $interaction = Interaction::findOrFail($id);
         $interaction->update($request->all());
         //sweet alert
         alert()->success('Successfully Updated an interaction', 'CRM')->autoclose(2000);

@@ -37,7 +37,7 @@
             @if (Auth::check())
 
                 <ul class="dropdown menu" data-dropdown-menu>
-                    <li><a href="#">CRM</a></li>
+                    <li><a href="/home">CRM</a></li>
                     <li>
                         <a href="#">Institution</a>
                         <ul class="menu vertical">
@@ -55,18 +55,10 @@
                     </li>
 
                     <li>
-                        <a href="#">Schedules</a>
-                        <ul class="menu vertical">
-                            <li><a href="#">My Schedules</a></li>
-                            <li><a href="#">Add Schedule</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
                         <a href="#">Deals</a>
                         <ul class="menu vertical">
                             <li><a href="/deals">Deals</a></li>
-                            <li><a href="#">Add a Deal</a></li>
+                            <li><a href="/deals/create">Add a Deal</a></li>
                         </ul>
                     </li>
 

@@ -31,8 +31,17 @@
 
             </div>
 
+            <div>
+                <h5>Schedule an Interaction</h5>
+                <hr>
+
+                {!! Form::open(['url' => '/interactions']) !!}
+                    @include('interactions._form', ['submitButtonText'=>'Submit'])
+                {!! Form::close() !!}
+            </div>
 
         </div>
+
     </div>
 
 @endsection

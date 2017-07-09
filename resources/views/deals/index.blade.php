@@ -9,12 +9,15 @@
 
         @if ($deals->isEmpty())
             <p>There are no deals created</p>
+            <a href="/deals/create">
+                <button class="button">Add Deal</button>
+            </a>
         @else
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
                     <th></th>
-                    <th>Interaction's Id</th>
+                    <th>Deal's Name</th>
                     <th>Company Ratio</th>
                     <th>Institution Ratio</th>
                     <th>Created At</th>
@@ -25,8 +28,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>
-                            {{ $deal->interaction_id }}
-                            {{--<a href="{!! action('DealsController@show', $institution->id) !!}">{{ $deal->name }}</a>--}}
+                            <a href="{!! action('DealsController@show', $deal->id) !!}">{{ $deal->name }}</a>
                         </td>
                         <td>{{ $deal->company_ratio }}</td>
                         <td>{{ $deal->institution_ratio }}</td>

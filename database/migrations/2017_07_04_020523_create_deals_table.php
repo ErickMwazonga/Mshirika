@@ -15,6 +15,8 @@ class CreateDealsTable extends Migration
     {
         Schema::create('deals', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('description');
             $table->unsignedInteger('interaction_id');
             $table->unsignedInteger('company_ratio');
             $table->unsignedInteger('institution_ratio');

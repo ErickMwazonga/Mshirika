@@ -40,6 +40,7 @@ $factory->define(App\Institution::class, function(Faker\Generator $faker){
 
 $factory->define(App\Interaction::class, function(Faker\Generator $faker){
     return[
+
         'user_id' => function(){
             return factory('App\User')->create()->id;
         },
@@ -51,9 +52,10 @@ $factory->define(App\Interaction::class, function(Faker\Generator $faker){
     ];
 });
 
-
 $factory->define(App\Deal::class, function(Faker\Generator $faker){
     return[
+        'name' => $faker->name,
+        'description' => $faker->sentence,
         'interaction_id' => function(){
             return factory('App\Interaction')->create()->id;
         },
@@ -62,3 +64,13 @@ $factory->define(App\Deal::class, function(Faker\Generator $faker){
     ];
 });
 
+
+$factory->define(App\Schedule::class, function(Faker\Generator $faker){
+    return[
+        'interaction_id' => function(){
+            return factory('App\Interaction')->create()->id;
+        },
+        'meeting_time' => $faker->dateTime,
+        'reminder_time' => $faker->dateTime
+    ];
+});

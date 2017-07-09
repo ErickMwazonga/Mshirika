@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="form-blade large-10 large-offset-1 columns">
+    <div class="form-blade large-10 large-offset-1 small-12 columns">
 
         <h5 class= "large-6 large-offset-4  columns">A List of Created Institutions</h5>
 
@@ -9,8 +9,11 @@
 
         @if ($institutions->isEmpty())
             <p>There are no institutions created</p>
+            <a href="/institutions/create">
+                <button class="button">Add Institution</button>
+            </a>
         @else
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered table-scroll">
                 <thead>
                 <tr>
                     <th></th>

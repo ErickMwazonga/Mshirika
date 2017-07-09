@@ -9,6 +9,9 @@
 
         @if ($interactions->isEmpty())
             <p>There are no Interactions created</p>
+            <a href="/interactions/create">
+                <button class="button">Add Interaction</button>
+            </a>
         @else
             <table class="table table-striped table-bordered">
                 <thead>

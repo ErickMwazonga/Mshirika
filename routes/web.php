@@ -30,8 +30,7 @@ Route::get('/institution/{id?}', [
 
 Route::get('/institutions/{id?}/edit', [
     'uses' => 'InstitutionsController@edit',
-    'middleware' => 'roles',
-    'roles' => ['manager']
+//    'middleware' => 'roles',
 ]);
 
 Route::post('/institutions/{id?}/update', [
@@ -85,23 +84,25 @@ Route::post('/interaction/{id?}/delete', 'InteractionsController@destroy');
 
 //Deals Routes
 Route::get('/deals', 'DealsController@index');
-//Route::get('/interactions/create', 'InteractionsController@create');
-//Route::post('/interactions', 'InteractionsController@store');
-//Route::get('/interaction/{id?}', [
-//    'as' => 'interactionShow',
-//    'uses' => 'InteractionsController@show'
-//]);
-//
-//Route::get('/interactions/{id?}/edit', [
-//    'uses' => 'InteractionsController@edit'
-////    'middleware' => 'roles',
-////    'roles' => ['manager']
-//]);
-//
-//Route::post('/interactions/{id?}/update', [
-//    'uses' => 'InteractionsController@update'
-////    'middleware' => 'roles',
-////    'roles' => ['manager']
-//]);
-//
-//Route::post('/interaction/{id?}/delete', 'InteractionsController@destroy');
+Route::get('/deals/create', 'DealsController@create');
+Route::post('/deals', 'DealsController@store');
+Route::get('/deal/{id?}', [
+    'as' => 'dealShow',
+    'uses' => 'DealsController@show'
+]);
+
+Route::get('/deals/{id?}/edit', [
+    'uses' => 'DealsController@edit'
+//    'middleware' => 'roles',
+//    'roles' => ['manager']
+]);
+
+Route::post('/deals/{id?}/update', [
+    'uses' => 'DealsController@update'
+//    'middleware' => 'roles',
+//    'roles' => ['manager']
+]);
+
+Route::post('/deal/{id?}/delete', 'DealsController@destroy');
+
+//Route::resource('deals', 'dealsController', ['middleware' => 'auth']);

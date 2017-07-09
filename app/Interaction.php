@@ -17,4 +17,8 @@ class Interaction extends Model
     {
         return $this->belongsTo(Institution::class, 'institution_id');
     }
+    public function deal()
+    {
+        return $this->hasOne('App\Deal');
+    }
 }
