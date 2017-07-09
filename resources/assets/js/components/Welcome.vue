@@ -1,7 +1,5 @@
 <template>
     <div class="notification">
-        <h1> {{message}} </h1>
-        <p><center><strong> {{headline}} </strong></center></p>
         <div v-html="msg"></div>
     </div>
 </template>
@@ -10,19 +8,20 @@
     export default{
         data(){
             return{
-                message: 'Hello World',
-                msg: `<p>When it comes to cybersecurity issues in a company, most of the managers evade the responsibility and plead ignorance about the threat for cyber-attacks. This in turn leads to a weak organization in terms of security and makes it prone to cyber-attacks at any time. The managers tend to put their total concern on financial and legal issues affecting the company, forgetting the most important and crucial bit which is cyber security. </p>
+                msg: `<p>
+                    1. Authorized users sign in to the system and perform tasks according to their access levels
+                    <br>2. An authorized user creates an institution and contact person from that institution
+                    <br>3. A project manager assigns a Cytonn employee to a specific institution
+                    <br>4. The employee assigned to an institution converses with the contact person and records the interactions. The interactions can be either through calls, emails, or meetings
+                    <br>5. Follow-up items arising after an interaction are tracked to be used in forthcoming interactions.
+                    <br>6. The employee assigned an institution schedules an interaction with the contact person. Upon scheduling an interaction, a reminder will be sent to remind the employee of the scheduled interaction
+                    <br>7. The system checks for future upcoming interactions and sends a reminder email 12 hours prior to the interaction
+                    <br>8. A user changes the status of an institution in regards to a certain project such as: interested, not-interested or in-talks
+                    <br>9. After an agreement, a user creates a deal, specifying the ratios and uploads the agreement document
+                    <br>10. The system then sends an email to both parties, notifying them about the deal
+                    <br>11. Finally, the system generates reports of institutions contacted and their stand in relation to funding the project.
 
-				<p>They consider cyber security issues to be too complex to make judgements about. In this digital era, a greater percentage of businesses have transformed their operations and transactions to be online. This necessitates the managers to take the mantle and spearhead the tough journey towards conquering the cyber-attacks/threats directed to their companies. The managers should therefore take full responsibility concerning the cybersecurity issue.</p>
-
-				<p>I am delighted to see that the management at Cytonn Investments is taking responsibility concerning cyber security. The management is concerned and is trying the very best to enlighten the employees about the issue too. For instance, the KnowBe4 training and tests have played a great role in enlightening the employees and it has also portrayed a great image of the company’s management in matters of cyber security. Therefore, setting up such training forums will bring a great positive impact to the company.<p/>`,
-
-                headline: "UK cyber chief says directors are devolving responsibility for hacks",
-                topics: "",
-                email: "",
-                username: "",
-                password:"",
-                user: {},
+                      <p/>`,
             }
         }
     }

@@ -5,8 +5,8 @@
     <div id="app">
         <div class="row">
             <div class="form-blade large-8 large-offset-2  columns">
-                <div>
-                    Welcome to Project Finance Management System
+                <div class="text-center">
+                    <h4>Welcome to Project Finance Management System</h4>
                 </div>
                 <div id="app">
                     <welcome></welcome>

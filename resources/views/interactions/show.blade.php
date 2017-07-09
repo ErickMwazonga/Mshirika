@@ -30,14 +30,6 @@
                 <br>
             </div>
 
-            {{--<div>--}}
-                {{--{!!  Form::model($interaction, ['method'=>'POST ','url' => "/interaction/$interaction->id/schedule"]) !!}--}}
-
-                    {{--@include('interactions._schedule', ['submitButtonText'=>'Submit'])--}}
-
-                {{--{!! Form::close() !!}--}}
-
-            {{--</div>--}}
         </div>
     </div>
 

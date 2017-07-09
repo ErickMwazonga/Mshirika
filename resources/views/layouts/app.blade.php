@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CRM') }}</title>
+    <title>{{ config('app.name', 'PF') }}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" >
@@ -37,7 +37,7 @@
             @if (Auth::check())
 
                 <ul class="dropdown menu" data-dropdown-menu>
-                    <li><a href="/home">CRM</a></li>
+                    <li><a href="/home">PF</a></li>
                     <li>
                         <a href="#">Institution</a>
                         <ul class="menu vertical">

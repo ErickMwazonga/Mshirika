@@ -23,7 +23,6 @@ class InstitutionsController extends Controller
     public function index()
     {
         $institutions = Institution::latest()->get();
-//        $institutions = DB::table('institutions')->simplePaginate(15);
         return view('institutions.index', compact('institutions'));
     }
 

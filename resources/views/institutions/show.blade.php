@@ -26,8 +26,7 @@
                         </div>
                     </form>
                 </div>
-
-
+                
                 <br>
 
             </div>
@@ -41,8 +40,6 @@
 
                 </div>
             @endif
-
-
         </div>
     </div>
 

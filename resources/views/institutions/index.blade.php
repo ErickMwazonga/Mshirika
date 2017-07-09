@@ -33,7 +33,6 @@
                             <a href="{!! action('InstitutionsController@show', $institution->id) !!}">{{ $institution->name }}</a>
                         </td>
                         <td>{{ $institution->status }}</td>
-    {{--                    <td>{{ $institution->contacted }}</td>--}}
                         <td>{{ $institution->cname }}</td>
                         <td>{{ $institution->phone }}</td>
                         <td>{{ $institution->email }}</td>
