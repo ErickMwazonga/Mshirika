@@ -8,6 +8,8 @@ use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Input;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -62,14 +64,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-//    protected function create(array $data)
-//    {
-//        return User::create([
-//            'name' => $data['name'],
-//            'email' => $data['email'],
-//            'password' => bcrypt($data['password']),
-//        ]);
-//    }
+
 
     /**
      * @param array $data
@@ -85,6 +80,17 @@ class RegisterController extends Controller
         $user
             ->roles()
             ->attach(Role::where('name', 'employee')->first());
+
+            Mail::send('auth.mails', [ 'institution'=>$user ], function ($message2) {
+
+                $message2->from('dianneprinsescah@gmail.com', 'Welcome message');
+
+                $message2->to(Input::get('email'))->subject('Thank you for registering with this company.');
+            });
+
+        //sweet alert
+//        alert()->success('Thank you for registering', '')->autoclose(2000);
+
         return $user;
     }
 }

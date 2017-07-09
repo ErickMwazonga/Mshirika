@@ -35,7 +35,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        event( new SendMail( 2 ) );
+//        event( new SendMail( 2 ) );
 //        Event::fire(new SendMail(2));
         return view( 'home' );
     }
