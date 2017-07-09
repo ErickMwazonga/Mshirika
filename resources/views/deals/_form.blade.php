@@ -8,7 +8,6 @@
     @endif
 </div>
 
-
 <div class="form-group">
     {!! Form::label('name', "Deal's Name:") !!}
     {!! Form::text('name', null, ['class'=>'form-control', "required"=>"required"]) !!}
@@ -19,7 +18,6 @@
     @endif
 </div>
 
-
 <div class="form-group">
     {!! Form::label('description', "Description:") !!}
     {!! Form::text('description', null, ['class'=>'form-control', "required"=>"required"]) !!}
@@ -29,8 +27,6 @@
         </div>
     @endif
 </div>
-
-
 
 <div class="form-group">
     {!! Form::label('company_ratio', "Company's Ratio:") !!}
@@ -51,7 +47,6 @@
         </div>
     @endif
 </div>
-
 
 <div class="form-group">
     {!! Form::label('created_at', 'Created On:') !!}

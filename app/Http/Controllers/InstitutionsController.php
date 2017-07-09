@@ -93,7 +93,7 @@ class InstitutionsController extends Controller
         $users = DB::table('users')
                     ->where('email', 'like', '%cytonn.com')
                     ->pluck('name','name')
-                    ->prepend('Select a category', '');
+                    ->prepend('Select an Employee', '');
 
         return view('institutions.show', compact(['institution', 'users']));
     }

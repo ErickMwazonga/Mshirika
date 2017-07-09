@@ -2,9 +2,7 @@
 
 @section('content')
     <div class="form-blade large-10 large-offset-1 small-12 columns">
-
         <h5 class= "large-6 large-offset-4  columns">A List of Created Institutions</h5>
-
         <hr>
 
         @if ($institutions->isEmpty())
@@ -43,8 +41,6 @@
                 @endforeach
                 </tbody>
             </table>
-
         @endif
-            <br>
     </div>
 @stop
