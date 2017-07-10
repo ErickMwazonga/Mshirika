@@ -81,7 +81,7 @@ class RegisterController extends Controller
             ->roles()
             ->attach(Role::where('name', 'employee')->first());
 
-            Mail::send('auth.mails', [ 'institution'=>$user ], function ($message2) {
+            Mail::send('auth.mails', ['institution'=>$user ], function ($message2) {
 
                 $message2->from('dianneprinsescah@gmail.com', 'Welcome message');
 

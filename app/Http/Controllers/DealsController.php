@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Deal;
+use App\Institution;
+use App\Interaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Mail;
 
 class DealsController extends Controller
 {
@@ -64,6 +68,18 @@ class DealsController extends Controller
             'interaction_id' => request('interaction_id'),
             'created_at'=>request('created_at')
         ]);
+
+
+//        Mail::send('auth.mails', function ($message2) {
+//
+//            $users_email_address = Auth::user()->email;
+//
+//            $message2->from('dianneprinsescah@gmail.com', 'Welcome message');
+//
+//            $message2
+//                ->to($users_email_address)
+//                ->subject('You created a Deal');
+//        });
 
         return redirect('/deals');
 
