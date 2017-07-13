@@ -50,6 +50,14 @@ html, body{
   font-size: 84px;
 }
 
+//modifications
+.main-show{
+  margin-right: 20px;
+}
+.top-list-create{
+  padding-top: 5px;
+}
+
 
 .links  a {
   color: #636b6f;
@@ -154,7 +162,7 @@ html, body{
   .form-signin button {
     width: 100%;
     display: block;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     z-index: 1;
     position: relative;
     -moz-box-sizing: border-box;

@@ -2,9 +2,17 @@
 
 @section('content')
     <div class="form-blade large-10 large-offset-1 columns">
-
-        <h5 class= "large-6 large-offset-4  columns">A List of Created Deals</h5>
-
+      <div class="row">
+        <div class="large-9 columns top-list-create">
+          <h5>A List of Created Deals</h5>
+        </div>
+        <div class="large-3 columns">
+          <a href="/deals/create">
+              <button class="button">Add Deal</button>
+          </a>
+        </div>
+      </div>
+      <div class="row">
         <hr>
 
         @if ($deals->isEmpty())
@@ -37,8 +45,8 @@
                 @endforeach
                 </tbody>
             </table>
-
         @endif
         <br>
+      </div>
     </div>
 @stop

@@ -5,12 +5,11 @@
         <h5>Edit an Institution</h5>
         <hr>
 
-        {!!  Form::model($institution, ['method'=>'POST ','url' => "/institutions/$institution->id/update"]) !!}
+        {!!  Form::model($institution, ['method'=>'PATCH ','url' => "/institutions/$institution->id/update"]) !!}
 
-        @include('institutions._form', ['submitButtonText'=>'Edit'])
+          @include('institutions._form', ['submitButtonText'=>'Edit'])
 
         {!! Form::close() !!}
 
     </div>
 @stop
-

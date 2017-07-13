@@ -121,6 +121,14 @@ class InstitutionsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'status' => 'required',
+            'cname' => 'required|string|max:255',
+            'phone' => 'required|min:10|numeric',
+            'email' => 'required|string|email|max:255|unique:institutions',
+        ]);
+
         $institution = Institution::findOrFail($id);
         $institution->update($request->all());
         //sweet alert

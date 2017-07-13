@@ -6,7 +6,7 @@
         <h5>Create an Institution</h5>
         <hr>
 
-        {!! Form::open(['url' => '/institutions']) !!}
+        {!! Form::open(['url' => '/institutions', 'data-parsley-validate' => '']) !!}
         @include('institutions._form', ['submitButtonText'=>'Submit'])
         {!! Form::close() !!}
 

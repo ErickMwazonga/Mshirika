@@ -2,9 +2,19 @@
 
 @section('content')
     <div class="form-blade large-10 large-offset-1 small-12 columns">
-        <h5 class= "large-6 large-offset-4  columns">A List of Created Institutions</h5>
-        <hr>
+      <div class="row">
+        <div class="large-9 columns top-list-create">
+          <h5>A List of Created Institutions</h5>
+        </div>
+        <div class="large-3 columns">
+          <a href="/institutions/create">
+              <button class="button">Add Institution</button>
+          </a>
+        </div>
+      </div>
 
+      <div class="row">
+        <hr>
         @if ($institutions->isEmpty())
             <p>There are no institutions created</p>
             <a href="/institutions/create">
@@ -13,15 +23,15 @@
         @else
             <table class="table table-striped table-bordered table-scroll">
                 <thead>
-                <tr>
-                    <th></th>
-                    <th>Institution's Name</th>
-                    <th>Status</th>
-                    <th>Contact person's name</th>
-                    <th>Phone number</th>
-                    <th>Email address</th>
-                    <th>Assignee</th>
-                </tr>
+                  <tr>
+                      <th></th>
+                      <th>Institution's Name</th>
+                      <th>Status</th>
+                      <th>Contact person's name</th>
+                      <th>Phone number</th>
+                      <th>Email address</th>
+                      <th>Assignee</th>
+                  </tr>
                 </thead>
                 <tbody>
                 @foreach($institutions as $institution)
@@ -42,5 +52,8 @@
                 </tbody>
             </table>
         @endif
+      </div>
+
+
     </div>
 @stop

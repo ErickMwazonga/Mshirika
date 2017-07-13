@@ -168,7 +168,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -9036,6 +9037,14 @@ body {
   font-size: 84px;
 }
 
+.main-show {
+  margin-right: 20px;
+}
+
+.top-list-create {
+  padding-top: 5px;
+}
+
 .links a {
   color: #636b6f;
   padding: 0 25px;
@@ -9127,7 +9136,6 @@ body {
 .form-signin button {
   width: 100%;
   display: block;
-  margin-bottom: 10px;
   z-index: 1;
   position: relative;
   -webkit-box-sizing: border-box;

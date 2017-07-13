@@ -18,6 +18,7 @@
 
     {{--sweet alert--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/parsley.css') }}">
 
 </head>
 
@@ -37,25 +38,25 @@
             @if (Auth::check())
 
                 <ul class="dropdown menu" data-dropdown-menu>
-                    <li><a href="/home">PF</a></li>
-                    <li>
-                        <a href="#">Institution</a>
+                    <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="/home">PF</a></li>
+                    <li class="{{ Request::is('institutions') ? 'active' : '' }}">
+                        <a href="/institutions">Institution</a>
                         <ul class="menu vertical">
                             <li><a href="/institutions">Institutions</a></li>
                             <li><a href="/institutions/create">Add Institution</a></li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="#">Interaction</a>
+                    <li class="{{ Request::is('interactions') ? 'active' : '' }}">
+                        <a href="/interactions">Interaction</a>
                         <ul class="menu vertical">
                             <li><a href="/interactions">Interactions</a></li>
                             <li><a href="/interactions/create">Add Interaction</a></li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="#">Deals</a>
+                    <li class="{{ Request::is('deals') ? 'active' : '' }}">
+                        <a href="/deals">Deals</a>
                         <ul class="menu vertical">
                             <li><a href="/deals">Deals</a></li>
                             <li><a href="/deals/create">Add a Deal</a></li>
@@ -111,7 +112,9 @@
 <script> $(document).foundation();</script>
 
 <!-- Include this after the sweet alert js file -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('js/parsley.min.js') }}"></script>
 
 
 <!-- Include this after the sweet alert js file -->

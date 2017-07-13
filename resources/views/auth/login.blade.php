@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card card-container form-blade">
-        <form class="form-signin" method="POST" action="{{ route('login') }}">
+        <form class="form-signin" method="POST" action="{{ route('login') }}" data-parsley-validate>
             {{ csrf_field() }}
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <br/>

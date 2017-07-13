@@ -7,10 +7,9 @@
 
         {!!  Form::model($deal, ['method'=>'POST ','url' => "/deals/$deal->id/update"]) !!}
 
-        @include('deals._form', ['submitButtonText'=>'Edit'])
+          @include('deals._form', ['submitButtonText'=>'Edit'])
 
         {!! Form::close() !!}
 
     </div>
 @stop
-

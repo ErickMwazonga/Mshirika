@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card card-container form-blade">
-        <form class="form-signin" method="POST" action="{{ route('register') }}">
+        <form class="form-signin" method="POST" action="{{ route('register') }}" data-parsley-validate>
             {{ csrf_field() }}
 
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
@@ -21,7 +21,7 @@
 
             <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
                 <div class="">
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus data-parsley-type="email">
                     @if ($errors->has('email'))
                         <div id="help-err">
                             <p><strong>{{ $errors->first('email') }}</strong></p>
