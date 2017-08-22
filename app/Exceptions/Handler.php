@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -44,6 +45,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+      if ($exception instanceof NotFoundHttpException){
+        return response()->view('errors.missing', [], 404);
+      }
         return parent::render($request, $exception);
     }
 
@@ -69,19 +73,19 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $e
      * @return mixed
      */
-    protected function convertExceptionToResponse(Exception $e)
-    {
-        if (config('app.debug')) {
-            $whoops = new \Whoops\Run;
-            $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-
-            return response()->make(
-                $whoops->handleException($e),
-                method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500,
-                method_exists($e, 'getHeaders') ? $e->getHeaders() : []
-            );
-        }
-
-        return parent::convertExceptionToResponse($e);
-    }
+    // protected function convertExceptionToResponse(Exception $e)
+    // {
+    //     if (config('app.debug')) {
+    //         $whoops = new \Whoops\Run;
+    //         $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    //
+    //         return response()->make(
+    //             $whoops->handleException($e),
+    //             method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500,
+    //             method_exists($e, 'getHeaders') ? $e->getHeaders() : []
+    //         );
+    //     }
+    //
+    //     return parent::convertExceptionToResponse($e);
+    // }
 }

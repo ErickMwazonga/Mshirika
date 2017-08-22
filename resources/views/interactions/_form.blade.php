@@ -8,13 +8,15 @@
     @endif
 </div>
 
-
 <div class="form-group">
     {!! Form::label('type', 'Type:') !!}
     {!! Form::select('type', [
        'calls' => 'Calls',
        'emails' => 'Emails',
-       'meetings' => 'Meetings'], null, ['class' => 'form-control', "required"=>"required"]) !!}
+       'meetings' => 'Meetings'],
+       null,
+       ['class' => 'form-control', "required"=>"required"])
+     !!}
     @if ($errors->has('type'))
         <div id="help-err">
             <p><strong>{{ $errors->first('type') }}</strong></p>
@@ -24,7 +26,17 @@
 
 <div class="form-group">
     {!! Form::label('follow_up_items', "Follow up Items:") !!}
-    {!! Form::text('follow_up_items', null, ['class'=>'form-control', "required"=>"required"]) !!}
+    {!! Form::select('follow_up_items[]', [
+       'Ngong' => 'Ngong',
+       'Sitadel' => 'Sitadel',
+       'Jumia' => 'Jumia',
+       'Siima' => 'Siima',
+       'Wello' => 'Wello',
+       'Sitadel' => 'Sitadel',
+       'Winner' => 'Winner'],
+       null,
+       ['class' => 'js-select2-multi', "required"=>"required", "multiple"=>"multiple"])
+     !!}
     @if ($errors->has('follow_up_items'))
         <div id="help-err">
             <p><strong>{{ $errors->first('follow_up_items') }}</strong></p>

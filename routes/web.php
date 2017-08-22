@@ -33,10 +33,12 @@ Route::get('/institutions/{id?}/edit', [
 //    'middleware' => 'roles',
 ]);
 
-Route::post('/institutions/{id?}/update', [
+Route::patch('/institutions/{id?}/update', [
     'uses' => 'InstitutionsController@update',
 ]);
+
 Route::post('/institution/{id?}/delete', 'InstitutionsController@destroy');
+Route::get('/institution/{id?}/comfirm-delete', 'InstitutionsController@delete');
 
 
 //Assign Employee

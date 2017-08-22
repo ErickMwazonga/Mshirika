@@ -5,7 +5,7 @@
         <h5>Edit a Deal</h5>
         <hr>
 
-        {!!  Form::model($deal, ['method'=>'POST ','url' => "/deals/$deal->id/update"]) !!}
+        {!!  Form::model($deal, ['method'=>'PUT','url' => "/deals/$deal->id/update"]) !!}
 
           @include('deals._form', ['submitButtonText'=>'Edit'])
 

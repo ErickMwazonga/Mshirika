@@ -38,6 +38,7 @@ class InteractionsController extends Controller
             ->paginate(15)
             ->pluck('name','id')
             ->prepend('Select an Institution', '');
+        // $institutions = Institution::all();
 
         return view('interactions.create', compact('institutions'));
     }

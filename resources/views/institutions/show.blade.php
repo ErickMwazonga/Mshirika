@@ -16,14 +16,25 @@
               <a class="button" href="{{ url("institutions/$institution->id/edit") }}">Edit Institution</a>
           </div>
 
-          <div class="large-4 large-offset-1 columns">
+          {{-- <div class="large-4 large-offset-1 columns">
               <form method="post" action="{!! action('InstitutionsController@destroy', $institution->id) !!}">
                   <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                   <div class="form-group">
-                      {!!  Form::model($institution, ['method'=>'POST','url' => ' institution/{id?}/delete '.$institution->id]) !!}
+                      {!! Form::model($institution, ['method'=>'POST','url' => ' institution/{id?}/delete '.$institution->id]) !!}
                       {{ Form::submit('Delete Institution', array('class' => 'button alert')) }}
                   </div>
               </form>
+          </div> --}}
+
+          <div class="large-4 large-offset-1 columns">
+            <a class="comfirm-delete button alert" href="{{ url("institution/$institution->id/comfirm-delete") }}">Delete Institution</a>
+              {{-- <form method="post" action="{!! action('InstitutionsController@delete', $institution->id) !!}">
+                  <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                  <div class="form-group">
+                      {!! Form::model($institution, ['method'=>'GET', 'url' => '/institution/{id?}/confirm-delete'.$institution->id]) !!}
+                      {{ Form::submit('Delete Institution', array('class' => 'button alert')) }}
+                  </div>
+              </form> --}}
           </div>
 
           <br>
@@ -42,3 +53,14 @@
   </div>
 
 @endsection
+
+
+@section('scripts')
+  <script>
+
+    // $(document).on('click', '.comfirm-delete', function(e) {
+    //     e.preventDefault();
+    //     //sweet alert
+    // });
+</script>
+@stop

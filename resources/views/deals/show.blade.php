@@ -21,7 +21,7 @@
                     <form method="post" action="{!! action('DealsController@destroy', $deal->id) !!}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
-                            {!!  Form::model($deal, ['method'=>'POST', 'url' => ' deal/{id?}/delete '.$deal->id]) !!}
+                            {!!  Form::model($deal, ['method'=>'DELETE', 'url' => ' deal/{id?}/delete '.$deal->id]) !!}
                             {{ Form::submit('Delete deal', array('class' => 'button alert')) }}
                         </div>
                     </form>
